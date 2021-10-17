@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Backdrop filter testing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <h2 class="header__logo">Test Backdrop filter property</h2>
+    </header>
+    <main class="main">
+        <section class="main__show">
+            <div class="box">
+              backdrop-filter: blur(10px)
+            </div>
+        </section>
+        <aside class="main__control-panel">
+            <form action="" class="form" name="form">
+                <fieldset name="backdrop">
+                    <legend>
+                        <h2>Backdrop-filter</h2>
+                    </legend>
+                    <div class="form__group">
+                        <label for="blurRange" class="form__label">Blur value</label>
+                        <input type="range" class="form__control" min="0" max="100" name="blurRange" id="blurRange">
+                        <span class="form__value">0</span>px
+                    </div>
+                    <div class="form__group">
+                        <label for="brightness" class="form__label">Brightness</label>
+                        <input type="range" class="form__control" min="0" max="100" name="brightnessRange" id="brightnessRange">
+                        <span class="form__value">50</span>%
+                    </div>
+                    <div class="form__group">
+                        <label for="contrast" class="form__label">Contrast</label>
+                        <input type="range" class="form__control" min="0" max="100" name="contrastRange" id="contrastRange">
+                        <span class="form__value">50</span>%
+                    </div>
+                    <div class="form__group">
+                      <label for="grayScale" class="form__label">Gray-scale</label>
+                      <input id="grayScale" type="range" 
+                      class="form__control" min="0" max="100" name="grayScaleRange" id="grayScaleRange">
+                      <span class="form__value">50</span>%
+                    </div>
+                </fieldset>
+            </form>
+        </aside>
+    </main>
+    <footer class="footer">
+        <p class="footer__copyright">
+          Test backdrop filter
+        </p>
+    </footer>
+</body>
+</html>
