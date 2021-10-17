@@ -1,7 +1,9 @@
 const backdropFields = form.elements.backdrop;
 const box = document.querySelector('.box');
 
-backdropFields.addEventListener('input', setRange);
+backdropFields.addEventListener('input', e => {
+	render(e.target);
+});
 
 function renderBoxValue(target) {
 	target.closest('.form__group')
@@ -19,22 +21,6 @@ function getUnits(name) {
 }
 
 function setRange(e) {
-	let target = e.target;
-
-    switch (target.name) {
-        case 'blur':
-        	render(target);
-            break;
-        case 'brightness':
-        	render(target);
-            break;
-        case 'contrast':
-        	render(target);
-            break;
-        case 'grayscale':
-        	render(target);
-            break;
-    }
 }
 
 function render(target) {

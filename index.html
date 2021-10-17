@@ -17,7 +17,7 @@
     <main class="main">
         <section class="main__show">
             <div class="box">
-              backdrop-filter: blur(10px)
+              blur(10px)
             </div>
         </section>
         <aside class="main__control-panel">
@@ -28,23 +28,41 @@
                     </legend>
                     <div class="form__group">
                         <label for="blurRange" class="form__label">Blur value</label>
-                        <input type="range" class="form__control" min="0" max="100" name="blur" id="blurRange">
+                        <input type="range" class="form__control" min="0" max="100" name="blur" id="blur">
                         <span class="form__value">0</span>px
                     </div>
                     <div class="form__group">
                         <label for="brightness" class="form__label">Brightness</label>
-                        <input type="range" class="form__control" min="0" max="100" name="brightness" id="brightnessRange">
+                        <input type="range" class="form__control" min="0" max="100" name="brightness" id="brightness">
                         <span class="form__value">50</span>%
                     </div>
                     <div class="form__group">
                         <label for="contrast" class="form__label">Contrast</label>
-                        <input type="range" class="form__control" min="0" max="100" name="contrast" id="contrastRange">
+                        <input type="range" class="form__control" min="0" max="100" name="contrast" id="contrast">
                         <span class="form__value">50</span>%
                     </div>
                     <div class="form__group">
                       <label for="grayScale" class="form__label">Gray-scale</label>
                       <input id="grayScale" type="range" 
-                      class="form__control" min="0" max="100" name="grayscale" id="grayScaleRange">
+                      class="form__control" min="0" max="100" name="grayscale">
+                      <span class="form__value">50</span>%
+                    </div>
+                    <div class="form__group">
+                      <label for="invert" class="form__label">Invert</label>
+                      <input id="invert" type="range" 
+                      class="form__control" min="0" max="100" name="invert">
+                      <span class="form__value">50</span>%
+                    </div>
+                    <div class="form__group">
+                      <label for="opacity" class="form__label">Opacity</label>
+                      <input id="opacity" type="range" 
+                      class="form__control" min="0" max="100" name="opacity">
+                      <span class="form__value">50</span>%
+                    </div>
+                    <div class="form__group">
+                      <label for="sepia" class="form__label">Sepia</label>
+                      <input id="sepia" type="range" 
+                      class="form__control" min="0" max="100" name="sepia">
                       <span class="form__value">50</span>%
                     </div>
                 </fieldset>
