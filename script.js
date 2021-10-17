@@ -1,73 +1,44 @@
-const form = document.forms.form;
 const backdropFields = form.elements.backdrop;
-const backdropRadio = document.getElementsByName('backdropRadio');
 const box = document.querySelector('.box');
 
-backdropFields.addEventListener('change', e => {
-    let target_type = e.target.type;
-    switch (target_type) {
-        case 'radio':
-            setBackdropType(e);
-            break;
-        case 'range':
-            setRange(e);
-            break;
-    }
-})
+backdropFields.addEventListener('input', setRange);
+
+function renderBoxValue(target) {
+	target.closest('.form__group')
+    .querySelector('.form__value').innerText = target.value;
+}
+
+function getPropertyValue(target) {
+	let {name, value} = target;
+	let units = getUnits(name);
+	return `${name}(${value}${units})`;
+}
+
+function getUnits(name) {
+	return name === 'blur' ? 'px' : '%';
+}
 
 function setRange(e) {
-    switch (e.target.name) {
-        case 'blurRange':
-            e.target.closest('.form__group')
-                .querySelector('.form__value').innerText = e.target.value;
-            box.style.setProperty('--backdrop-filter',
-                `blur(${e.target.value}px)`);
-            box.innerText = `backdrop-filter: blur(${e.target.value}px)`;
+	let target = e.target;
+
+    switch (target.name) {
+        case 'blur':
+        	render(target);
             break;
-        case 'brightnessRange':
-            e.target.closest('.form__group')
-                .querySelector('.form__value').innerText = e.target.value;
-            box.style.setProperty('--backdrop-filter',
-                `brightness(${e.target.value}%)`);
-            box.innerText = `backdrop-filter: brightness(${e.target.value}%)`;
+        case 'brightness':
+        	render(target);
             break;
-        case 'contrastRange':
-            e.target.closest('.form__group')
-                .querySelector('.form__value').innerText = e.target.value;
-            box.style.setProperty('--backdrop-filter',
-                `contrast(${e.target.value}%)`);
-            box.innerText = `backdrop-filter: contrast(${e.target.value}%)`;
+        case 'contrast':
+        	render(target);
             break;
-        case 'grayScaleRange':
-            e.target.closest('.form__group')
-                .querySelector('.form__value').innerText = e.target.value;
-            box.style.setProperty('--backdrop-filter',
-                `grayscale(${e.target.value}%)`);
-            box.innerText = `backdrop-filter: grayscale(${e.target.value}%)`;
+        case 'grayscale':
+        	render(target);
             break;
     }
 }
 
-function setBackdropType(e) {
-    let target_value = e.target.value;
-    let val = '';
-    let text = 'backdrop-filter: ';
-
-    switch (target_value) {
-        case 'blur':
-            val = '10px';
-            text += `${target_value}(${val})`;
-            break;
-        case 'brightness':
-            val = '40%';
-            text += `${target_value}(${val})`;
-            break;
-        case 'contrast':
-            val = '60%';
-            text += `${target_value}(${val})`;
-            break;
-    }
-
-    box.style.setProperty('--backdrop-filter', `${target_value}(${val})`);
-    box.innerText = text;
+function render(target) {
+    renderBoxValue(target);
+    box.style.setProperty('--backdrop-filter', getPropertyValue(target));
+    box.innerText = getPropertyValue(target);
 }
