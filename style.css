@@ -73,9 +73,30 @@ a {
 }
 
 .box {
+    min-width: 250px;
     padding: 90px 140px;
     background-color: rgba(255, 255, 255, .2);
     color: #ffffff;
     border-radius: 3px;
     backdrop-filter: var(--backdrop-filter);
+    text-align: center;
+}
+
+.form__group {
+    display: flex;
+}
+
+.form__label {
+    flex: 2;
+}
+
+.form__control {
+    flex: 4;
+}
+
+.form__value {
+    flex: 1;
+    margin-left: auto;
+    padding-left: 10px;
+    text-align: right;
 }
