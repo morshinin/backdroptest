@@ -1,5 +1,25 @@
 const backdropFields = form.elements.backdrop;
 const box = document.querySelector('.box');
+const values = {
+	blur: 'px',
+	brightness: '%',
+	contrast: '%',
+	grayscale: '%',
+	invert: '%',
+	opacity: '%',
+	sepia: '%',
+}
+
+for (let [key, value] of Object.entries(values)) {
+	backdropFields.insertAdjacentHTML('beforeend', `
+		<div class="form__group">
+            <label for="${key}" class="form__label">${key}</label>
+            <input type="range" class="form__control" min="0" max="100" 
+            name="${key}" id="${key}">
+            <span class="form__value">0</span>${value}
+        </div>
+	`);
+}
 
 backdropFields.addEventListener('input', e => {
 	render(e.target);
